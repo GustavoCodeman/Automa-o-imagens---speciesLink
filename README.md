@@ -2,16 +2,15 @@
 
 Web scraper em Python para catalogar padrões de barcode das imagens públicas do CRIA/speciesLink.
 
-O projeto consulta somente endpoints públicos do catálogo, não baixa imagens e registra progresso em SQLite para permitir retomada segura.
-
-## Uso
+## Executar no Windows
 
 ```powershell
 py -3.11 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-$env:PYTHONPATH = "src"
-python -m cria_barcode_scraper.cli
+py scraper.py
 ```
 
-O arquivo Excel é gerado em `data/padroes_barcode_cria.xlsx`.
+O progresso é salvo em `data/progress.sqlite` e a planilha é gerada em `data/padroes_barcode_cria.xlsx`. Para retomar uma coleta interrompida, repita o mesmo comando.
+
+> A primeira versão ainda está em evolução: antes de uma coleta completa, valide a execução com uma coleção pequena.
